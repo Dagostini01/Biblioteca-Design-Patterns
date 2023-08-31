@@ -1,10 +1,17 @@
 package model;
+import observer.Observer;
+import observer.Subject;
 
-public class Livro {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Livro implements Subject {
+
     private String titulo;
     private String autor;
     private String isbn;
     private int copiasDisponiveis;
+    private List<Observer> observers = new ArrayList<>();
 
     public String getTitulo() {
         return titulo;
@@ -46,5 +53,22 @@ public class Livro {
 
     public int getCopiasDisponiveis() {
         return copiasDisponiveis;
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(this);
+        }
     }
 }
