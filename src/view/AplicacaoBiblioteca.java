@@ -8,12 +8,12 @@ public class AplicacaoBiblioteca {
     public static void main(String[] args) {
         BibliotecaController controller = new BibliotecaController();
 
-        Aluno aluno1 = new Aluno("Alice", 1001);
-        Aluno aluno2 = new Aluno("Bob", 1002);
+        Aluno aluno1 = new Aluno("Pedro", 94283);
+        Aluno aluno2 = new Aluno("Marcus", 94279);
 
-        Livro livro = new Livro("Dom Casmurro", "Machado de Assis", "978-85-208-0129-1", 3);
+        Livro livro = new Livro("Código Limpo", "Bill Gates", "589875200044", 1);
 
-        controller.registrarLivro("Harry Potter", "J.K. Rowling", "978-85-368-0728-0", 5);
+        controller.registrarLivro("Entendendo algoritmos", "Albert Einstein", "52545210054", 1);
 
         livro.addObserver(aluno1);
         livro.addObserver(aluno2);
@@ -21,8 +21,10 @@ public class AplicacaoBiblioteca {
         controller.emprestarLivro(livro, aluno1);
         controller.devolverLivro(livro);
 
+        // Remover aluno1 como observador do livro
         livro.removeObserver(aluno1);
 
         controller.emprestarLivro(livro, aluno2);
     }
 }
+
