@@ -1,5 +1,11 @@
 package controller;
 
+import model.Aluno;
+import model.Livro;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class BibliotecaController {
     private Map<Livro, Aluno> emprestimos = new HashMap<>();
 
