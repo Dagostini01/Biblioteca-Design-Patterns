@@ -1,8 +1,6 @@
-package observer;
+package model;
 
-import observer.Observer;
-
-import java.util.List;
+import model.Observer;
 
 public interface Subject {
     void addObserver(Observer observer);

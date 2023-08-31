@@ -1,12 +1,17 @@
 package model;
 
-import observer.Observer;
-
 public class Aluno implements Observer {
     private String nome;
     private int numeroMatricula;
 
-    public Aluno() {
+    public Aluno(String nome, int numeroMatricula) {
+        this.nome = nome;
+        this.numeroMatricula = numeroMatricula;
+    }
+
+    @Override
+    public void update(Livro livro) {
+        System.out.println("Notificação para " + nome + ": O livro '" + livro.getTitulo() + "' está disponível para empréstimo novamente.");
     }
 
     public String getNome() {
@@ -17,21 +22,11 @@ public class Aluno implements Observer {
         this.nome = nome;
     }
 
-    public void setNumeroMatricula(int numeroMatricula) {
-        this.numeroMatricula = numeroMatricula;
-    }
-
     public int getNumeroMatricula() {
         return numeroMatricula;
     }
 
-    public Aluno(String nome, int numeroMatricula) {
-        this.nome = nome;
+    public void setNumeroMatricula(int numeroMatricula) {
         this.numeroMatricula = numeroMatricula;
-    }
-
-    @Override
-    public void update(Livro livro) {
-        System.out.println("Notificação para " + nome + ": O livro '" + livro.getTitulo() + "' está disponível para empréstimo novamente.");
     }
 }
